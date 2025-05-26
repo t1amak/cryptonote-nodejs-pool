@@ -87,8 +87,12 @@ function routePage(loadedCallback) {
             $('#loading').hide();
             $('#page').show().html(data);
 	    loadTranslations();
-            if (currentPage) currentPage.update();
-            if (loadedCallback) loadedCallback();
+            if (currentPage) {
+			currentPage.update();
+		}
+            if (loadedCallback) {
+			loadedCallback();
+		}
         }
     });
 }
@@ -1247,6 +1251,7 @@ function market_LoadMarketData(api, stats, loadedData, currencyPairs, xhrMarketG
 // Market data polling (poll data every 5 minutes)
 function market_UpdateMarkets(api, stats, currencyPairs, xhrMarketGets, marketPrices){
     if (typeof marketCurrencies === 'undefined' || marketCurrencies.length === 0) return ;
+    if (typeof exchangeName === 'undefined' || exchangeName === 0) { let exchangeName = "exbitron" } ;
     
     currencyPairs[stats.config.coin] = []
 
@@ -1258,7 +1263,7 @@ function market_UpdateMarkets(api, stats, currencyPairs, xhrMarketGets, marketPr
 
     xhrMarketGets[stats.config.coin] = $.ajax({
         url: api + '/get_market',
-        data: { tickers: currencyPairs[stats.config.coin] },
+        data: { tickers: currencyPairs[stats.config.coin], exchange: exchangeName },
         dataType: 'json',
         cache: 'false',
         success: function(data) {
@@ -1318,6 +1323,7 @@ function market_RenderMarketPrice(base, target, price, source, stats, marketPric
     else if (source == 'cryptopia') sourceURL = 'https://www.cryptopia.co.nz/';
     else if (source == 'stocks.exchange') sourceURL = 'https://stocks.exchange/';
     else if (source == 'tradeogre') sourceURL = 'https://tradeogre.com/';
+    else if (source == 'exbitron') sourceURL = 'https://app.exbitron.com/';
 
     source = source.charAt(0).toUpperCase() + source.slice(1);
     if (sourceURL) source = '<a href="'+sourceURL+'" target="_blank" rel="nofollow">'+source+'</a>';
