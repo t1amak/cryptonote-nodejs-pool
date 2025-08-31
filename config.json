@@ -257,6 +257,33 @@
         "currency": "USD"
     },
 
+    "salvium": {
+        "enabled": false,
+        "addressSeparator": "+",
+        "heights": {
+            "audit_phase1": 815,
+            "audit_phase2": 900,
+            "audit_phase3": 950,
+            "audit_complete": 1000,
+            "require_dual_login": 1050,
+            "carrot": 1100
+        },
+        "addressPrefixes": {
+            "cryptonote": {
+                "public": "0x3ef318",
+                "integrated": "0x55ef318",
+                "subaddress": "0xf5ef318"
+            },
+            "carrot": {
+                "public": "0x180c96",
+                "integrated": "0x2ccc96",
+                "subaddress": "0x314c96"
+            }
+        },
+        "carrotPoolAddress": "",
+        "carrotDonationAddress": ""
+    },
+
     "charts": {
         "pool": {
             "hashrate": {

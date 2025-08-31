@@ -1,0 +1,165 @@
+{
+    "poolHost": "your.salvium.pool.host",
+	
+    "coin": "Salvium",
+    "symbol": "SAL",
+    "coinUnits": 1000000000000,
+    "coinDecimalPlaces": 12,
+    "coinDifficultyTarget": 120,
+    "blockchainExplorer": "https://explorer.salvium.io/block/{id}",
+    "transactionExplorer": "https://explorer.salvium.io/tx/{id}",
+
+    "daemonType": "default",
+    "cnAlgorithm": "cryptonight",
+    "cnVariant": 0,
+    "cnBlobType": 0,
+
+    "logging": {
+        "files": {
+            "level": "info",
+            "directory": "logs",
+            "flushInterval": 5
+        },
+        "console": {
+            "level": "info",
+            "colors": true
+        }
+    },
+
+    "salvium": {
+        "enabled": true,
+        "addressSeparator": "+",
+        "heights": {
+            "audit_phase1": 815,
+            "audit_phase2": 900,
+            "audit_phase3": 950,
+            "audit_complete": 1000,
+            "require_dual_login": 1050,
+            "carrot": 1100
+        },
+        "addressPrefixes": {
+            "cryptonote": {
+                "public": "0x3ef318",
+                "integrated": "0x55ef318",
+                "subaddress": "0xf5ef318"
+            },
+            "carrot": {
+                "public": "0x180c96",
+                "integrated": "0x2ccc96",
+                "subaddress": "0x314c96"
+            }
+        },
+        "carrotPoolAddress": "SC1_YOUR_POOL_CARROT_ADDRESS_HERE",
+        "carrotDonationAddress": "SC1_YOUR_DONATION_CARROT_ADDRESS_HERE"
+    },
+
+    "childPools": null,
+    "poolServer": {
+        "enabled": true,
+        "mergedMining": false,
+        "clusterForks": "auto",
+        "poolAddress": "SaLv_YOUR_POOL_CRYPTONOTE_ADDRESS_HERE",
+        "intAddressPrefix": null,
+        "blockRefreshInterval": 600,
+        "minerTimeout": 600,
+        "ports": [
+            {
+                "port": 3333,
+                "difficulty": 5000,
+                "desc": "Low end hardware"
+            },
+            {
+                "port": 4444,
+                "difficulty": 15000,
+                "desc": "Mid range hardware"
+            },
+            {
+                "port": 5555,
+                "difficulty": 25000,
+                "desc": "High end hardware"
+            }
+        ],
+        "varDiff": {
+            "minDiff": 5000,
+            "maxDiff": 100000000,
+            "targetTime": 120,
+            "retargetTime": 30,
+            "variancePercent": 30,
+            "maxJump": 100
+        },
+        "paymentId": {
+            "addressSeparator": "+"
+        },
+        "fixedDiff": {
+            "enabled": true,
+            "addressSeparator": "."
+        },
+        "shareTrust": {
+            "enabled": true,
+            "min": 10,
+            "stepDown": 3,
+            "threshold": 10,
+            "penalty": 30
+        },
+        "banning": {
+            "enabled": true,
+            "time": 600,
+            "invalidPercent": 80,
+            "checkThreshold": 30
+        }
+    },
+
+    "payments": {
+        "enabled": true,
+        "interval": 600,
+        "maxAddresses": 50,
+        "mixin": 16,
+        "priority": 0,
+        "transferFee": 1000000000,
+        "dynamicTransferFee": true,
+        "minerPayFee": true,
+        "minPayment": 1000000000000,
+        "maxTransactionAmount": 100000000000000,
+        "denomination": 1000000000
+    },
+
+    "blockUnlocker": {
+        "enabled": true,
+        "interval": 30,
+        "depth": 60,
+        "poolFee": 1.0,
+        "devDonation": 0.1,
+        "networkFee": 0.0
+    },
+
+    "api": {
+        "enabled": true,
+        "hashrateWindow": 600,
+        "updateInterval": 5,
+        "bindIp": "0.0.0.0",
+        "port": 8070,
+        "blocks": 30,
+        "payments": 30,
+        "password": "your_api_password",
+        "ssl": false,
+        "trustProxyIP": true
+    },
+
+    "daemon": {
+        "host": "127.0.0.1",
+        "port": 11812
+    },
+
+    "wallet": {
+        "host": "127.0.0.1",
+        "port": 11813
+    },
+
+    "redis": {
+        "host": "127.0.0.1",
+        "port": 6379,
+        "auth": null,
+        "db": 0,
+        "cleanupInterval": 15
+    }
+}
