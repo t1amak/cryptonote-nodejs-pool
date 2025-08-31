@@ -1301,6 +1301,7 @@ function market_RenderMarketPrice(base, target, price, source, stats, marketPric
     if (target == 'BTC') icon = 'fa-btc';
     if (target == 'BCH') icon = 'fa-btc';
     if (target == 'USD') icon = 'fa-dollar';
+    if (target == 'USDT') icon = 'fa-dollar';
     if (target == 'CAD') icon = 'fa-dollar';
     if (target == 'EUR') icon = 'fa-eur';
     if (target == 'GBP') icon = 'fa-gbp';
@@ -1310,18 +1311,16 @@ function market_RenderMarketPrice(base, target, price, source, stats, marketPric
         marketPrices[stats.config.coin][target] = price;
     }
 
-    if (target == 'USD' || target == 'CAD' ||  target == 'EUR' || target == 'GBP' || target == 'JPY') {
+    if (target == 'USD' || target == 'USDT' || target == 'CAD' ||  target == 'EUR' || target == 'GBP' || target == 'JPY') {
         price = price.toFixed(4);
     } else {
         price = price.toFixed(8);
     }
 
     let sourceURL = null;
-    if (source == 'cryptonator') sourceURL = 'https://www.cryptonator.com/';
-    else if (source == 'altex') sourceURL = 'https://altex.exchange/';
-    else if (source == 'crex24') sourceURL = 'https://crex24.com/';
-    else if (source == 'cryptopia') sourceURL = 'https://www.cryptopia.co.nz/';
-    else if (source == 'stocks.exchange') sourceURL = 'https://stocks.exchange/';
+    if (source == 'coinex') sourceURL = 'https://www.coinex.com/';
+    else if (source == 'mexc') sourceURL = 'https://www.mexc.com/';
+    else if (source == 'nonkyc') sourceURL = 'https://nonkyc.io/';
     else if (source == 'tradeogre') sourceURL = 'https://tradeogre.com/';
     else if (source == 'exbitron') sourceURL = 'https://app.exbitron.com/';
 
